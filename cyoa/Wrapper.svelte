@@ -25,5 +25,18 @@
 	setContext(`current_page_name`, current_page_name)
 </script>
 
-<svelte:component this={current_page_component} {Link} />
 <svelte:window on:hashchange={update_current_page} />
+
+<div>
+	<svelte:component this={current_page_component} {Link} />
+</div>
+
+<style>
+	div {
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+
+		white-space: pre;
+	}
+</style>

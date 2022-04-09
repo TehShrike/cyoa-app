@@ -8,8 +8,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "glob": "glob-module-file --pattern=adventures/test1/**/*.svelte --format=es --pathPrefix=../ --exportWithPath=true --outputPath=cyoa/globbed_adventure.js",
     "build": "npm run glob && rollup -c",
+    "watch": "rollup -c -w",
     "serve": "live-server --no-css-inject --no-browser public",
-    "dev": "run-p build serve"
+    "dev": "npm-run-all -s glob -p watch serve"
   },
   "repository": {
     "type": "git",

@@ -12,8 +12,6 @@
 
 	const name_to_id = getContext(`name_to_id`)
 
-	$: console.log(`to is`, to)
-	$: console.log(`name_to_id`, name_to_id)
 	$: link_target_id = name_to_id[to]
 
 	const current_page_name = getContext(`current_page_name`)
@@ -29,3 +27,9 @@
 <a href="?page={link_target_id}" on:click={on_click}>
 	<slot></slot>
 </a>
+
+<style>
+	a {
+		padding: 8px 16px;
+	}
+</style>

@@ -7,3 +7,4 @@ The starting file must be called `Start.svelte`.
 
 - Orphan detection
 - Bad link detection
+- watch for changes that need to trigger glob

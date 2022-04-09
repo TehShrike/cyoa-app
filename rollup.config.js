@@ -32,6 +32,7 @@ export default {
 
 				handler(warning)
 			},
+			emitCss: false,
 		}),
 		resolve({
 			browser: true,
