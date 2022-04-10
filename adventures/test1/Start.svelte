@@ -1,9 +1,9 @@
 <script>
-	export let Link
+	export let PassageLink, SectionLink
 </script>
 
-Welcome to Pantstown!
+Welcome to Pantstown! Sitting in your chair is a <PassageLink>shirt</PassageLink> and a pair of <PassageLink>pants.</PassageLink>
 
-<Link to=01_Pit>Shirt</Link>
+<SectionLink to=01_Pit>Put on Shirt</SectionLink>
 
-<Link to=02_Pants>Pant</Link>
+<SectionLink to=02_Pants>Put on Pants</SectionLink>
