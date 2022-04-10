@@ -1,5 +1,8 @@
 <script>
-	export let PassageLink, SectionLink
+	import PantsPassage from "./PantsPassage.svelte";
+	import ShirtPassage from "./ShirtPassage.svelte";
+
+	export let PassageLink, SectionLink 
 </script>
 
 Welcome to Pantstown! Sitting in your chair is a <PassageLink>shirt</PassageLink> and a pair of <PassageLink>pants.</PassageLink>

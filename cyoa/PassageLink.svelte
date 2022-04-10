@@ -1,3 +1,4 @@
+<!-- I want this link to render a new component inside the DOM -->
 <script>
 	import { getContext } from 'svelte'
 
@@ -30,6 +31,6 @@
 
 <style>
 	a {
-		padding: 1px 1px;
+		padding: 1px;
 	}
 </style>

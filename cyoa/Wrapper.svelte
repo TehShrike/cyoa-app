@@ -2,7 +2,8 @@
 	import { setContext } from 'svelte'
 	import { writable } from 'svelte/store'
 
-	import Link from './Link.svelte'
+	import SectionLink from './SectionLink.svelte'
+	import PassageLink from './PassageLink.svelte'
 
 	export let name_to_id
 	export let id_to_name
@@ -28,7 +29,7 @@
 <svelte:window on:hashchange={update_current_page} />
 
 <div>
-	<svelte:component this={current_page_component} {Link} />
+	<svelte:component this={current_page_component} {SectionLink} {PassageLink} />
 </div>
 
 <style>
