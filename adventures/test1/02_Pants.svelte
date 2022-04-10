@@ -1,9 +1,9 @@
 <script>
-	export let Link
+	export let SectionLink
 </script>
 
 Ah yes, this is what you want from a pants.
 
-<Link to=01_Pit>Left leg</Link>
+<SectionLink to=01_Pit>Left leg</SectionLink>
 
-<Link to=03_GoodEnding>Right leg</Link>
+<SectionLink to=03_GoodEnding>Right leg</SectionLink>
