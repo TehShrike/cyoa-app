@@ -37,6 +37,13 @@
 		margin-left: auto;
 		margin-right: auto;
 
-		white-space: pre;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		white-space: normal;
+	}
+
+	div :global(*) {
+		margin: 0;
 	}
 </style>
