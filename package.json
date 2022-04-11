@@ -6,8 +6,9 @@
   "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "glob": "glob-module-file --pattern=adventures/test1/**/*.svelte --format=es --pathPrefix=../ --exportWithPath=true --outputPath=cyoa/globbed_adventure.js",
+    "glob": "glob-module-file --pattern=adventures/blackboard_jungle/**/*.svelte --format=es --pathPrefix=../ --exportWithPath=true --outputPath=cyoa/globbed_adventure.js",
     "build": "npm run glob && rollup -c",
+    "watch:glob": "node cheap_watch.cjs adventures/blackboard_jungle npm run glob",
     "watch": "rollup -c -w",
     "serve": "live-server --no-css-inject --no-browser public",
     "dev": "npm-run-all -s glob -p watch serve"
@@ -24,6 +25,7 @@
   "homepage": "https://github.com/TehShrike/cyoa-app#readme",
   "dependencies": {
     "@rollup/plugin-node-resolve": "^13.1.3",
+    "cheap-watch": "^1.0.4",
     "glob-module-file": "^3.0.2",
     "live-server": "^1.2.1",
     "npm-run-all": "^4.1.5",
