@@ -8,9 +8,13 @@
 </script>
 
 {#if wearing_glasses}
-	You can't see anything.  No exits, no items, nothing.
+	<p>
+		You can't see anything.  No exits, no items, nothing.
+	</p>
 {:else}
-	You are in the gym.  It's currently devoid of sweaty athletes and cheering fans.  You smell a locker room to the south.  The exit is to the east.  You see an eyeglasses case on the ground.
+	<p>
+		You are in the gym.  It's currently devoid of sweaty athletes and cheering fans.  You smell a locker room to the south.  The exit is to the east.  You see an eyeglasses case on the ground.
+	</p>
 {/if}
 
 {#if wearing_glasses}
