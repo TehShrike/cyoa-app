@@ -1,13 +1,18 @@
 <script>
 	import { setContext } from 'svelte'
 	import { writable } from 'svelte/store'
+	import { value } from 'warg'
 
 	import Link from './Link.svelte'
+	import Links from './Links.svelte'
 
 	export let name_to_id
 	export let id_to_name
 	export let id_to_component
 	export let params
+	export let initial_state
+
+	const adventure_state = value(initial_state)
 
 	const update_current_page = () => {
 		$current_page_name = id_to_name[params.get(`page`)] || `Start`
@@ -28,7 +33,12 @@
 <svelte:window on:hashchange={update_current_page} />
 
 <div>
-	<svelte:component this={current_page_component} {Link} />
+	<svelte:component 
+		this={current_page_component} 
+		{Link} 
+		{Links} 
+		state={adventure_state}
+	/>
 </div>
 
 <style>

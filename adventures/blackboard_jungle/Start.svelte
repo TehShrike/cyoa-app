@@ -1,6 +1,4 @@
-<script>
-	export let Link
-
+<script context=module>
 	export const initial_state = {
 		returned_elfs_bow: false,
 		returned_wizards_spell_book: false,
@@ -20,10 +18,15 @@
 	}
 </script>
 
+<script>
+	export let Link, Links
+</script>
+
 <h1>Blackboard Jungle</h1>
 
 <strong>Can you find your homework and avoid detention, or are you doomed to a weekend of staring at the wall?</strong>
 
 
-
-<Link to=078_Gymnasium>Start</Link>
+<Links>
+	<Link to=078_gymnasium>Start</Link>
+</Links>

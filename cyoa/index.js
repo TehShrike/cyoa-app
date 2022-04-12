@@ -18,7 +18,9 @@ const basename = path => {
 	return file.split(`.`).slice(0, -1).join(`.`)
 }
 
-if (!all_cyoa_components.some(({ path }) => path.endsWith(`Start.svelte`))) {
+const Start = all_cyoa_components.find(({ path }) => path.endsWith(`Start.svelte`))
+
+if (!Start) {
 	console.error(`You need a "Start.svelte" file`)
 } else {
 	const name_to_id = Object.fromEntries(all_cyoa_components.map(({ path }) => {
@@ -39,7 +41,7 @@ if (!all_cyoa_components.some(({ path }) => path.endsWith(`Start.svelte`))) {
 		]
 	}))
 
-	const id_to_component = Object.fromEntries(all_cyoa_components.map(({ path, export: component }) => {
+	const id_to_component = Object.fromEntries(all_cyoa_components.map(({ path, export: { default: component } }) => {
 		const name = basename(path)
 		const id = name_to_id[name]
 
@@ -66,6 +68,7 @@ if (!all_cyoa_components.some(({ path }) => path.endsWith(`Start.svelte`))) {
 			id_to_name,
 			id_to_component,
 			params,
+			initial_state: Start.export.initial_state,
 		},
 	})
 }

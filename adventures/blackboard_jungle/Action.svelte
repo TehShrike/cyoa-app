@@ -4,25 +4,29 @@
 	const dispatch = createEventDispatcher()
 
 	export let summary
-
-	let clicked = false
+	export let selected = false
 
 	const on_click = () => {
-		if (!clicked) {
-			clicked = true
+		if (!selected) {
+			selected = true
 			dispatch(`select`)
 		}
 	}
 </script>
 
-<p>
-	<button on:click={on_click}>{summary}</button> {#if clicked}<slot></slot>{/if}
+<p data-selected={selected}>
+	<span class=triangle>▶</span>
+	<button on:click={on_click}>{summary}</button> {#if selected}<slot></slot>{/if}
 </p>
 
 <style>
+	[data-selected=true] .triangle {
+		color: gray;
+	}
+
 	button {
 		cursor: pointer;
-		color: blue;
+		color: darkblue;
 		text-decoration: underline;
 		border: 0;
 		padding: 0;

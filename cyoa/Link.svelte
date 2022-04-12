@@ -14,6 +14,8 @@
 
 	$: link_target_id = name_to_id[to]
 
+	$: link_target_id || console.error(`No component found named`, to)
+
 	const current_page_name = getContext(`current_page_name`)
 
 	const on_click = event => {
@@ -30,6 +32,6 @@
 
 <style>
 	a {
-		padding: 8px 16px;
+		padding: 4px 0;
 	}
 </style>

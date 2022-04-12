@@ -1,17 +1,16 @@
 <script>
 	import Action from './Action.svelte'
+	import Blue from './Blue.svelte'
 
-	export let Link
+	export let Link, Links
 
 	let seen_glasses = false
 	let wearing_glasses = false
 </script>
 
-{#if wearing_glasses}
-	<p>
-		You can't see anything.  No exits, no items, nothing.
-	</p>
-{:else}
+<h2>Gymnasium</h2>
+
+{#if !wearing_glasses}
 	<p>
 		You are in the gym.  It's currently devoid of sweaty athletes and cheering fans.  You smell a locker room to the south.  The exit is to the east.  You see an eyeglasses case on the ground.
 	</p>
@@ -27,7 +26,7 @@
 {:else}
 	<Action
 		summary="Examine case"
-		on:select={() => seen_glasses = true}
+		bind:selected={seen_glasses}
 	>
 		Inside the case are a pair of cat-eye glasses.
 	</Action>
@@ -38,17 +37,24 @@
 		>
 			The bedazzled cat-eye glasses aren't really your style.
 		</Action>
-
-		<Action
-			summary="Wear glasses"
-			on:select={() => wearing_glasses = true}
-		>
-			Everything is blurry and indistinct.
-		</Action>
 	{/if}
-
-	<Link to=79_locker_room>South: locker room</Link>
-
-	<Link to=80_hallway>West: Hallway</Link>
 {/if}
 
+{#if seen_glasses}
+	<Action
+		summary="Wear glasses"
+		bind:selected={wearing_glasses}
+	>
+		Everything is blurry and indistinct.
+
+		<Blue>The player cannot see room contents, exits, or examine objects while wearing the glasses.</Blue>
+	</Action>
+{/if}
+
+{#if !wearing_glasses}
+	<Links>
+		<Link to=079_locker_room>SOUTH: locker room</Link>
+
+		<Link to=080_hallway>WEST: Hallway</Link>
+	</Links>
+{/if}
