@@ -1,16 +1,6 @@
-const to_hexadecimal = str => {
-	let result = ``
-
-	for (let i = 0; i < str.length; i++) {
-		const hex = str.charCodeAt(i).toString(16)
-		result += (`000` + hex).slice(-4)
-	}
-
-	return result
-}
-
 import Wrapper from './Wrapper.svelte'
-
+import { param_store, object_serializer_store } from './url_store.js'
+import rot13 from './rot13.js'
 import all_cyoa_components from './globbed_adventure.js'
 
 const basename = path => {
@@ -28,7 +18,7 @@ if (!Start) {
 
 		return [
 			name,
-			to_hexadecimal(name),
+			rot13(name),
 		]
 	}))
 
@@ -36,7 +26,7 @@ if (!Start) {
 		const name = basename(path)
 
 		return [
-			to_hexadecimal(name),
+			rot13(name),
 			name,
 		]
 	}))
@@ -51,24 +41,30 @@ if (!Start) {
 		]
 	}))
 
-	const get_params_string_from_browser = () => location.hash.replace(/^#/, ``)
-	const params = {
-		get: key => new URLSearchParams(get_params_string_from_browser()).get(key),
-		set: (key, value) => {
-			const params = new URLSearchParams(get_params_string_from_browser())
-			params.set(key, value)
-			location.hash = params.toString()
-		},
+	const to_obfuscated_json = value => rot13(JSON.stringify(value))
+	const from_obfuscated_json = string => {
+		try {
+			return JSON.parse(rot13(string))
+		} catch (err) {
+			console.error(err)
+			return {}
+		}
 	}
 
-	const app = new Wrapper({
+	new Wrapper({
 		target: document.body,
 		props: {
 			name_to_id,
 			id_to_name,
 			id_to_component,
-			params,
-			initial_state: Start.export.initial_state,
+			page_id_param: param_store({ param_name: `page` }),
+			adventure_state: object_serializer_store({
+				param_name: `state`,
+				replace: true,
+				default_values: Start.export.initial_state,
+				serialize: to_obfuscated_json,
+				deserialize: from_obfuscated_json,
+			}),
 		},
 	})
 }

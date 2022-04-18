@@ -1,7 +1,6 @@
 <script>
 	import { setContext } from 'svelte'
 	import { writable } from 'svelte/store'
-	import { value } from 'warg'
 
 	import Link from './Link.svelte'
 	import Links from './Links.svelte'
@@ -9,19 +8,25 @@
 	export let name_to_id
 	export let id_to_name
 	export let id_to_component
-	export let params
-	export let initial_state
+	export let page_id_param
+	export let adventure_state
 
-	const adventure_state = value(initial_state)
+	const update_current_page = page_id => {
+		const new_page_name = id_to_name[page_id]
+	
+		if (!new_page_name) {
+			throw new Error(`No such page "${new_page_name}"`)
+		}
 
-	const update_current_page = () => {
-		$current_page_name = id_to_name[params.get(`page`)] || `Start`
+		$current_page_name = new_page_name
 	}
 
 	const current_page_name = writable()
-	update_current_page()
+	
+	$current_page_name = id_to_name[$page_id_param] || `Start`
+	$: update_current_page($page_id_param)
 
-	$: params.set(`page`, name_to_id[$current_page_name])
+	$: $page_id_param = name_to_id[$current_page_name]
 
 	$: current_page_id = name_to_id[$current_page_name]
 	$: current_page_component = id_to_component[current_page_id]
@@ -29,8 +34,6 @@
 	setContext(`name_to_id`, name_to_id)
 	setContext(`current_page_name`, current_page_name)
 </script>
-
-<svelte:window on:hashchange={update_current_page} />
 
 <div>
 	<svelte:component 
