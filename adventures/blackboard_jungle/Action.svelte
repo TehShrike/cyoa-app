@@ -15,18 +15,28 @@
 </script>
 
 <p data-selected={selected}>
-	<span class=triangle>▶</span>
+	<span class=triangle>
+		{#if selected}
+			✔
+		{:else}
+			▶
+		{/if}
+	</span>
 	<button on:click={on_click}>{summary}</button> {#if selected}<slot></slot>{/if}
 </p>
 
 <style>
-	[data-selected=true] .triangle {
+	.triangle {
 		color: gray;
+	}
+
+	[data-selected=true] .triangle {
+		color: #00a800;
 	}
 
 	button {
 		cursor: pointer;
-		color: darkblue;
+		color: rgb(0, 0, 238);
 		text-decoration: underline;
 		border: 0;
 		padding: 0;

@@ -2,9 +2,8 @@
 	import Action from './Action.svelte'
 	import Blue from './Blue.svelte'
 
-	export let Link, Links
+	export let Link, Links, state
 
-	let seen_glasses = false
 	let wearing_glasses = false
 </script>
 
@@ -26,21 +25,28 @@
 {:else}
 	<Action
 		summary="Examine case"
-		bind:selected={seen_glasses}
+		bind:selected={$state.seen_glasses}
 	>
 		Inside the case are a pair of cat-eye glasses.
 	</Action>
 
-	{#if seen_glasses}
+	{#if $state.seen_glasses}
 		<Action
 			summary="Examine glasses"
 		>
 			The bedazzled cat-eye glasses aren't really your style.
 		</Action>
+
+		<Action
+			summary="Take glasses"
+			bind:selected={$state.have_glasses}
+		>
+			👍
+		</Action>
 	{/if}
 {/if}
 
-{#if seen_glasses}
+{#if $state.seen_glasses}
 	<Action
 		summary="Wear glasses"
 		bind:selected={wearing_glasses}

@@ -43,6 +43,10 @@ if (!Start) {
 
 	const to_obfuscated_json = value => rot13(JSON.stringify(value))
 	const from_obfuscated_json = string => {
+		if (!string) {
+			return {}
+		}
+
 		try {
 			return JSON.parse(rot13(string))
 		} catch (err) {

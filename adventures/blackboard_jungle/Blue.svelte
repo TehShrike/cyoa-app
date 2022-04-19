@@ -4,6 +4,6 @@
 
 <style>
 	p {
-		color: darkblue;
+		color: rgb(0, 0, 238);
 	}
 </style>
