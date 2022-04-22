@@ -5,7 +5,8 @@ The starting file must be called `Start.svelte`.
 - Orphan detection
 - still need to implement a "wrapper" for adventures
 	- global styles (--blue)
-	- global buttons (save, reset)
+	- global buttons (save, reset, inventory)
+	- "score" dialog that uses state
 
 ## stuff
 
