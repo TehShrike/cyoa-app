@@ -15,19 +15,19 @@
 	</p>
 {/if}
 
-{#if wearing_glasses}
-	<Action
-		summary="Remove glasses"
-		on:select={() => wearing_glasses = false}
-	>
-		Everything looks normal.
-	</Action>
-{:else}
+{#if !wearing_glasses}
 	<Action
 		summary="Examine case"
 		bind:selected={$state.seen_glasses}
 	>
 		Inside the case are a pair of cat-eye glasses.
+	</Action>
+
+	<Action
+		summary="Take case"
+		bind:selected={$state.carrying.eyeglasses_case}
+	>
+		👍
 	</Action>
 
 	{#if $state.seen_glasses}
@@ -39,7 +39,7 @@
 
 		<Action
 			summary="Take glasses"
-			bind:selected={$state.have_glasses}
+			bind:selected={$state.carrying.cat_eye_glasses}
 		>
 			👍
 		</Action>
@@ -57,9 +57,18 @@
 	</Action>
 {/if}
 
+{#if wearing_glasses}
+	<Action
+		summary="Remove glasses"
+		on:select={() => wearing_glasses = false}
+	>
+		Everything looks normal.
+	</Action>
+{/if}
+
 {#if !wearing_glasses}
 	<Links>
-		<Link to=079_locker_room>SOUTH: locker room</Link>
+		<Link to=079_locker_room>SOUTH: Locker Room</Link>
 
 		<Link to=080_hallway>WEST: Hallway</Link>
 	</Links>
