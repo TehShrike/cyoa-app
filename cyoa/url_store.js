@@ -21,6 +21,8 @@ export const param_store = ({ param_name, replace = false, initial_value = get_p
 
 	const set_param = replace ? replace_param : push_param
 
+	set_param(param_name, initial_value)
+
 	const change_listener = () => {
 		set(get_param(param_name))
 	}
