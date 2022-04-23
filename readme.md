@@ -13,6 +13,8 @@ That's basically it.  Routing, and state.  They all get magically updated in the
 
 ## How do I get started?
 
+You'll need [node](https://nodejs.org/).  And [git](https://git-scm.com/downloads), if it's not on your machine already.
+
 Run this:
 
 ```sh
@@ -87,9 +89,13 @@ Maybe at some point in the future this will be a "real" 1.0 framework, and I'll 
 
 But in the interest of facilitating wacky hacking, for now I like having everything in one repo like this.
 
+## How to become a l33t hax0r
+
+To learn more fancy bits about how the page templating works, check out the [Svelte documentation](https://svelte.dev/docs#template-syntax).  That's how the page components are handled.
+
 ## I need to ask someone a question
 
-I like helping people who are making things.  I'm `TehShrike#4520` on Discord or [TehShrike](https://twitter.com/TehShrike) on Twitter.
+I like helping people make things.  I'm `TehShrike#4520` on Discord or [TehShrike](https://twitter.com/TehShrike) on Twitter.
 
 # Todo
 
