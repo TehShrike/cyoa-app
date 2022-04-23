@@ -1,7 +1,7 @@
 <script>
-	import Action from './Action.svelte'
-	import Blue from './Blue.svelte'
-	import Exits from './Exits.svelte'
+	import Action from './helpers/Action.svelte'
+	import Blue from './helpers/Blue.svelte'
+	import Exits from './helpers/Exits.svelte'
 
 	export let Link, state
 

@@ -1,5 +1,5 @@
 <script>
-	import Save from './Save.svelte'
+	import Save from './helpers/Save.svelte'
 	import initial_state from './initial_state.js'
 
 	export let Link, state, current_page_name
@@ -15,6 +15,12 @@
 			<span class=currently_on>Score</span>
 		{:else}
 			<Link to=Score>Score</Link>
+		{/if}
+
+		{#if $current_page_name === `Inventory`}
+			<span class=currently_on>Inventory</span>
+		{:else}
+			<Link to=Inventory>Inventory</Link>
 		{/if}
 
 		<Save
@@ -59,6 +65,7 @@
 
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 	}
 
 	.currently_on {

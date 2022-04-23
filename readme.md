@@ -2,7 +2,6 @@ The starting file must be called `Start.svelte`.
 
 ## Todo
 
-- global buttons (save, reset, inventory)
 - make sure components in subdirectories work fine
 	- put all the `\d{3}_.+.svelte` files into a "sections" directory
 - clean up

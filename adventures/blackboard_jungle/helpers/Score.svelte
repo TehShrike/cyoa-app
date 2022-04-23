@@ -1,4 +1,6 @@
 <script>
+	import Button from './ButtonThatLooksLikeALink.svelte'
+
 	export let Link, state
 
 	$: score_opportunities = [{
@@ -48,8 +50,8 @@
 
 <ul>
 	{#each score_opportunities as {text, points, achieved}}
-		<li>
-			<span data-achieved={achieved}>
+		<li data-achieved={achieved}>
+			<span>
 				<span class="bullet">
 					{#if achieved}
 						✔
@@ -75,26 +77,17 @@
 
 <div>
 	{#if history.length > 1}
-		<button on:click={() => history.back()} class=looks_like_a_link>
-			Close
-		</button>
+		<Button on:click={() => history.back()} class=looks_like_a_link>
+			Close Score
+		</Button>
 	{:else}
 		<Link to=Start>
-			Close
+			Close Score
 		</Link>
 	{/if}
 </div>
 
 <style>
-	.looks_like_a_link {
-		cursor: pointer;
-		color: var(--blue);
-		text-decoration: underline;
-		background: transparent;
-		border: none;
-		padding: 0;
-	}
-
 	[data-achieved=true] {
 		font-weight: 700;
 	}

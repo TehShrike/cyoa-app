@@ -1,6 +1,6 @@
 <script>
-	import Action from './Action.svelte'
-	import Exits from './Exits.svelte'
+	import Action from './helpers/Action.svelte'
+	import Exits from './helpers/Exits.svelte'
 
 	export let Link, state
 </script>
