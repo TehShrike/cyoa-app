@@ -4,14 +4,14 @@ Twine does a lot of work to give you that no-code experience, but by the time yo
 
 This CYOA framework gets out of your way and just gives you the basics you need to get started.  It's not no-code, but it's meant to be learnable the same way everyone learned JS and HTML back in the day: by copying and pasting simple patterns until you internalize how they work.
 
-### What does the framework give you
+## What does the framework give you
 
 - it handles the page that needs to be displayed
 - it handles storing any state like inventory or previous choices
 
 That's basically it.  Routing, and state.  They all get magically updated in the url for you, and all you have to do is create pages to link to.
 
-### How do I get started?
+## How do I get started?
 
 Run this:
 
@@ -23,7 +23,7 @@ npm run dev
 
 and then start fiddling with the files in the `adventure` directory.
 
-### What's the bare minimum your adventure needs
+## What's the bare minimum your adventure needs
 
 **A file named `Container.svelte` that has `<slot></slot>` somewhere inside it** - this is what shows up on every single page.  You can put your global links or style stuff in here.
 
@@ -39,11 +39,11 @@ Your `Start.svelte` file must include a `<script context=module>` element that c
 </script>
 ```
 
-### What magical bits does the framework give you?
+## What magical bits does the framework give you?
 
 In any of your components, you can include `export let Link` or `export let state` to be able to link to other pages, or store state.  You can also `export let current_page_name` to get the current page name, but you won't need that very often.
 
-#### `state`
+### `state`
 
 You use the [`$`](https://svelte.dev/docs#component-format-script-4-prefix-stores-with-$-to-access-their-values) symbol to access the magical values, like so:
 
@@ -61,7 +61,7 @@ or
 </button>
 ```
 
-#### `Link`
+### `Link`
 
 Link to any other page in your adventure, using the file name without the `.svelte` suffix.
 
@@ -79,13 +79,17 @@ If you want to do something crazy, you can change the state when they click on t
 	Open the door covered in cobwebs
 </Link>
 ```
-### What shouldn't you do
+## What shouldn't you do
 
 Well, you probably shouldn't mess with the files in the `cyoa` directory.  That's the actual framework stuff.
 
 Maybe at some point in the future this will be a "real" 1.0 framework, and I'll publish that stuff as its own separate tool.
 
 But in the interest of facilitating wacky hacking, for now I like having everything in one repo like this.
+
+## I need to ask someone a question
+
+I like helping people who are making things.  I'm `TehShrike#4520` on Discord or [TehShrike](https://twitter.com/TehShrike) on Twitter.
 
 # Todo
 
