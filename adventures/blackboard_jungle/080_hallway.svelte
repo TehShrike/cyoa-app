@@ -1,8 +1,9 @@
 <script>
 	import Action from './Action.svelte'
 	import Blue from './Blue.svelte'
+	import Exits from './Exits.svelte'
 
-	export let Link, Links, state
+	export let Link, state
 </script>
 
 <h2>Hallway (West)</h2>
@@ -40,7 +41,7 @@
 	</Action>
 {/if}
 
-<Links>
+<Exits>
 	{#if $state.cleaned_sick}
 		<Link to=081_hallway>Go East: Hallway</Link>
 	{:else}
@@ -56,4 +57,4 @@
 	<Link to=083_classroom>
 		Go North: Classroom
 	</Link>
-</Links>
+</Exits>

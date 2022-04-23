@@ -3,7 +3,6 @@
 	import { writable } from 'svelte/store'
 
 	import Link from './Link.svelte'
-	import Links from './Links.svelte'
 
 	export let Container
 	export let name_to_id
@@ -34,17 +33,17 @@
 
 	setContext(`name_to_id`, name_to_id)
 	setContext(`current_page_name`, current_page_name)
+	setContext(`adventure_state`, adventure_state)
 </script>
 
 <Container
 	{Link}
-	{Links}
 	state={adventure_state}
+	{current_page_name}
 >
 	<svelte:component
 		this={current_page_component}
 		{Link}
-		{Links}
 		state={adventure_state}
 	/>
 </Container>

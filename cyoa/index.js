@@ -1,6 +1,9 @@
 import Wrapper from './Wrapper.svelte'
+
 import { param_store, object_serializer_store } from './url_store.js'
 import rot13 from './rot13.js'
+import { to_obfuscated_json, from_obfuscated_json } from './state_serialization.mjs'
+
 import all_cyoa_components from './globbed_adventure.js'
 
 const basename = path => {
@@ -43,20 +46,6 @@ if (!start_import) {
 			component,
 		]
 	}))
-
-	const to_obfuscated_json = value => rot13(JSON.stringify(value))
-	const from_obfuscated_json = string => {
-		if (!string) {
-			return {}
-		}
-
-		try {
-			return JSON.parse(rot13(string))
-		} catch (err) {
-			console.error(err)
-			return {}
-		}
-	}
 
 	new Wrapper({
 		target: document.body,

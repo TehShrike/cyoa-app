@@ -1,8 +1,9 @@
 <script>
 	import Action from './Action.svelte'
 	import Blue from './Blue.svelte'
+	import Exits from './Exits.svelte'
 
-	export let Link, Links, state
+	export let Link, state
 
 	let wearing_glasses = false
 </script>
@@ -67,9 +68,9 @@
 {/if}
 
 {#if !wearing_glasses}
-	<Links>
+	<Exits>
 		<Link to=079_locker_room>SOUTH: Locker Room</Link>
 
 		<Link to=080_hallway>WEST: Hallway</Link>
-	</Links>
+	</Exits>
 {/if}

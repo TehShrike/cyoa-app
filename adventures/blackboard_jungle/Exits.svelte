@@ -1,4 +1,4 @@
-<hr>
+<h3>Exits</h3>
 
 <div>
 	<slot></slot>
@@ -9,5 +9,6 @@
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
+		border-bottom: 1px solid var(--gray);
 	}
 </style>

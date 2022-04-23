@@ -68,13 +68,19 @@
 </ul>
 
 <div>
+	<strong>
+		Final score: {total_achieved} / {total_possible}
+	</strong>
+</div>
+
+<div>
 	{#if history.length > 1}
 		<button on:click={() => history.back()} class=looks_like_a_link>
-			Go back
+			Close
 		</button>
 	{:else}
 		<Link to=Start>
-			Go back
+			Close
 		</Link>
 	{/if}
 </div>

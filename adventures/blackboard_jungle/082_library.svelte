@@ -1,8 +1,9 @@
 <script>
 	import Action from './Action.svelte'
 	import Blue from './Blue.svelte'
+	import Exits from './Exits.svelte'
 
-	export let Link, Links, state
+	export let Link, state
 
 	$state.visits_to_library++
 </script>
@@ -66,7 +67,7 @@
 	</Blue>
 {/if}
 
-<Links>
+<Exits>
 	{#if $state.returned_the_cat_eye_glasses}
 		<Link to=081_hallway>SOUTH: Hallway</Link>
 	{:else}
@@ -78,4 +79,4 @@
 			</p>
 		</Action>
 	{/if}
-</Links>
+</Exits>

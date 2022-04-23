@@ -1,5 +1,8 @@
 <script>
-	export let Link, Links, state
+	import Save from './Save.svelte'
+	import initial_state from './initial_state.js'
+
+	export let Link, state, current_page_name
 </script>
 
 <div class=container>
@@ -8,7 +11,21 @@
 	</div>
 
 	<footer>
-		<Link to=Score>Score</Link>
+		{#if $current_page_name === `Score`}
+			<span class=currently_on>Score</span>
+		{:else}
+			<Link to=Score>Score</Link>
+		{/if}
+
+		<Save
+			{Link}
+			{state}
+			{current_page_name}
+		/>
+
+		<Link to=078_gymnasium state={initial_state}>
+			Reset
+		</Link>
 	</footer>
 </div>
 
@@ -38,11 +55,14 @@
 	}
 
 	footer {
-		border-top: 1px solid var(--gray);
 		padding-top: 16px;
 
 		display: flex;
 		justify-content: space-between;
+	}
+
+	.currently_on {
+		font-weight: 700;
 	}
 
 	.container :global(p),
