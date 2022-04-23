@@ -7,13 +7,11 @@
 </script>
 
 <script>
-	export let Link, Links
+	export let Link
 </script>
 
 <h1>Blackboard Jungle</h1>
 
 <strong>Can you find your homework and avoid detention, or are you doomed to a weekend of staring at the wall?</strong>
 
-<Links>
-	<Link to=078_gymnasium>Start</Link>
-</Links>
+<Link to=078_gymnasium>Start</Link>
