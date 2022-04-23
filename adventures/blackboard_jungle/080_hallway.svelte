@@ -13,39 +13,38 @@
 	Going east without cleaning up the puddle causes the player character to slip and fall, sustaining a mild concussion.
 </Blue>
 
-<Action
-	summary="Examine Door"
->
+<Action summary="Examine Door">
 	You see Mr. Bushel discussing last night's homework.  Oops.
 </Action>
 
-<Action
-	summary="Examine puddle of sick"
->
+<Action summary="Examine puddle of sick">
 	Yuck.  Looks like it was Salisbury steak day.  Where's the school janitor when you need him?
 </Action>
 
-<Action
-	summary="Use pink sawdust"
-	bind:selected={$state.cleaned_sick}
->
-	You cover up the slipper puddle.
-	<Blue>The Hallway is now safe.  The player character may proceed up the Hallway.</Blue>
-</Action>
+{#if $state.carrying.bucket}
+	<Action
+		summary="Use pink sawdust"
+		bind:selected={$state.cleaned_sick}
+	>
+		You cover up the slippery puddle.
+		<Blue>The Hallway is now safe.  The player character may proceed up the Hallway.</Blue>
+	</Action>
+{/if}
 
-<Action
-	summary="Sweep"
->
-	You'll make a fine janitor some day.
-</Action>
+{#if $state.carrying.broom}
+	<Action
+		summary="Sweep"
+		bind:selected={$state.sweeped_up_the_hallway}
+	>
+		You'll make a fine janitor some day.
+	</Action>
+{/if}
 
 <Links>
 	{#if $state.cleaned_sick}
 		<Link to=081_hallway>Go East: Hallway</Link>
 	{:else}
-		<Action
-			summary="Go East: Hallway"
-		>
+		<Action summary="Go East: Hallway">
 			You wake up in the nurse's office with a terrible headache and blurred vision.  The school nurse sends you to the hospital for an MRI, just in case.  THE END.
 		</Action>
 	{/if}

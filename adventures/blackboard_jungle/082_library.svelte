@@ -4,7 +4,7 @@
 
 	export let Link, Links, state
 
-	let gave_glasses_to_librarian = false
+	$state.visits_to_library++
 </script>
 
 <h2>Library</h2>
@@ -17,37 +17,29 @@
 	If the player character never picked up the glasses or is sent to the library a second time: You spend the next four hours staring at the wall.  THE END.
 </Blue>
 
-{#if !$state.have_glasses || $state.visits_to_library > 1}
+{#if !$state.carrying.cat_eye_glasses || $state.visits_to_library > 1}
 	<p>
 		You spend the next four hours staring at the wall.  THE END.
 	</p>
 {/if}
 
-<Action
-	summary="Examine Librarian"
->
+<Action summary="Examine Librarian">
 	<p>She squints at you. She asks, "Back again, eh?"</p>
 </Action>
 
-<Action
-	summary="Examine Book"
->
+<Action summary="Examine Book">
 	<p>
 		The book's title is <i>Cryptography for Dummies</i>.  You remember skimming it during detention yesterday, but that seems like a long time ago.
 	</p>
 </Action>
 
-<Action
-	summary="Read Book"
->
+<Action summary="Read Book">
 	<p>
 		You flip it open.  Someone wrote "Divide by two", in the margin of the book.  Oh, that was you!
 	</p>
 </Action>
 
-<Action
-	summary="Examine cubby"
->
+<Action summary="Examine cubby">
 	<p>
 		The wood desk has the numbers 16-32-64 scratched into it.
 	</p>
@@ -57,12 +49,12 @@
 	</Blue>
 </Action>
 
-{#if $state.have_glasses || gave_glasses_to_librarian}
+{#if $state.carrying.cat_eye_glasses || $state.returned_the_cat_eye_glasses}
 	<Action
 		summary="Give Glasses to Librarian"
 		on:select={() => {
-			gave_glasses_to_librarian = true
-			$state.have_glasses = false
+			$state.returned_the_cat_eye_glasses = true
+			$state.carrying.cat_eye_glasses = false
 		}}
 	>
 		<p>
@@ -75,7 +67,7 @@
 {/if}
 
 <Links>
-	{#if gave_glasses_to_librarian}
+	{#if $state.returned_the_cat_eye_glasses}
 		<Link to=081_hallway>SOUTH: Hallway</Link>
 	{:else}
 		<Action

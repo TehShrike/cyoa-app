@@ -1,6 +1,5 @@
 <script>
 	import Action from './Action.svelte'
-	import Blue from './Blue.svelte'
 
 	export let Link, Links, state
 </script>
@@ -13,12 +12,12 @@
 
 <Action
 	summary="Examine Lockers"
-	bind:selected={$state.examined_locker}
+	bind:selected={$state.examined_lockers}
 >
 	You find your locker.  At least you think it's your locker.  It's been a while since you opened it.
 </Action>
 
-{#if $state.examined_locker}
+{#if $state.examined_lockers}
 	<Action
 		summary="Open Locker"
 		bind:selected={$state.tried_to_open_locker}
@@ -36,31 +35,40 @@
 
 	<Action
 		summary="Use Combination 16-32-64"
+		on:select={() => $state.locker_unlock_attempts++}
 	>
 		The numbers on the lock don't go that high.
 	</Action>
 
 	<Action
 		summary="Use Combination 8-16-32"
-		bind:selected={$state.opened_locker}
+		bind:selected={$state.unlocked_your_locker}
 	>
 		The locker opens.  There are some typewritten papers inside.
 	</Action>
+
+	<Action
+		summary="Use Any Other Combination"
+		on:select={() => $state.locker_unlock_attempts++}
+	>
+		What made you think that combination would work?
+	</Action>
+
 {/if}
 
-{#if $state.opened_locker}
+{#if $state.unlocked_your_locker}
 	<Action
 		summary="Examine Papers"
 		bind:selected={$state.examined_locker}
 	>
-		It's your English <Blue>Homework</Blue> – something about something you were supposed to read.  You paid good money for this!
-	</Action>	
+		It's your English <u>Homework</u> – something about something you were supposed to read.  You paid good money for this!
+	</Action>
 {/if}
 
 {#if $state.examined_locker}
 	<Action
 		summary="Take Homework"
-		bind:selected={$state.have_homework}
+		bind:selected={$state.carrying.homework}
 	>
 		👍
 	</Action>
@@ -68,5 +76,5 @@
 
 <Links>
 	<Link to=082_library>NORTH: Library</Link>
-	<Link to=080_library>WEST: Hallway</Link>
+	<Link to=080_hallway>WEST: Hallway</Link>
 </Links>

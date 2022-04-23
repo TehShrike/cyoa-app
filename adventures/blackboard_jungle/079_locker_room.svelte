@@ -4,8 +4,6 @@
 
 	export let Link, Links, state
 
-	let examined_cart = false
-	let pushed_cart = false
 	let found_freshman = false
 </script>
 
@@ -17,26 +15,43 @@
 
 <Action
 	summary="Examine cart"
-	bind:selected={examined_cart}
+	bind:selected={$state.examined_cart_in_locker_room}
 >
 	<p>The janitor's cart is more or less a trash can on wheels.  A <u>bucket</u> of pink sawdust and a <u>broom</u> hang from the cart.</p>
 
 	<Blue>The player can push the cart around or take the individual items.</Blue>
 </Action>
 
-{#if examined_cart}
-	<Action summary="Take bucket" bind:selected={$state.have_bucket}>👍</Action>
+{#if $state.examined_cart_in_locker_room}
+	<Action summary="Take bucket" bind:selected={$state.carrying.bucket}>👍</Action>
 
-	<Action summary="Take broom" bind:selected={$state.have_broom}>👍</Action>
+	<Action summary="Take broom" bind:selected={$state.carrying.broom}>👍</Action>
 
-	<Action summary="Push cart" bind:selected={pushed_cart}>You hear someone cry out in alarm from inside the cart's trash can.</Action>
+	{#if !$state.rescued_the_freshman}
+		<Action summary="Push cart">
+			You hear someone cry out in alarm from inside the cart's trash can.
+		</Action>
+	
+		<Action 
+			summary="Examine trash can" 
+			bind:selected={found_freshman}
+		>
+			You find a freshman.
+		</Action>
+	{/if}
 
-	<Action summary="Examine trash can" bind:selected={found_freshman}>You find a freshman.</Action>
 
 	{#if found_freshman}
-		<Action summary="Talk to freshman">Are you serious?  Someone might see you!</Action>
+		<Action summary="Talk to freshman">
+			Are you serious?  Someone might see you!
+		</Action>
 
-		<Action summary="Help freshman">The freshman runs off crying.</Action>
+		<Action 
+			summary="Help freshman" 
+			bind:selected={$state.rescued_the_freshman}
+		>
+			The freshman runs off crying.
+		</Action>
 	{/if}
 {/if}
 

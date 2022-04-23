@@ -1,20 +1,22 @@
 <script context=module>
 	export const initial_state = {
-		returned_elfs_bow: false,
-		returned_wizards_spell_book: false,
-		rescued_cleric: false,
-		rescued_dwarf: false,
-		defeated_gray_ooze: false,
-		defeated_spider: false,
-		rescued_baby_goblin: false,
-		gave_baby_goblin_to_goblin_queen: false,
-		gave_crown_to_goblin_queen: false,
-		banished_chaos_demon: false,
-		killed_chaos_cultist: false,
-		returned_home: false,
-		raised_baby_goblin_as_your_own: false,
-		returned_artifact_to_stronghold: false,
-		saved: false,
+		retrieved_the_cat_eye_glasses: false,
+		sweeped_up_the_hallway: false,
+		rescued_the_freshman: false,
+		returned_the_cat_eye_glasses: false,
+		unlocked_your_locker: false,
+		locker_unlock_attempts: 0,
+		handed_in_your_english_homework: false,
+		visits_to_library: 0,
+		saves: [],
+		carrying: {
+			eyeglasses_case: false,
+			cat_eye_glasses: false,
+			bucket: false,
+			broom: false,
+			homework: false,
+			book: false,
+		},
 	}
 </script>
 

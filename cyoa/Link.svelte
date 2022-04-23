@@ -26,9 +26,15 @@
 	}
 </script>
 
-<a href="?page={link_target_id}" on:click={on_click}>
-	<slot></slot>
-</a>
+{#if link_target_id}
+	<a href="?page={link_target_id}" on:click={on_click}>
+		<slot></slot>
+	</a>
+{:else}
+	<p>
+		<slot></slot> <span style="color: red">(There is no page named "<span style="font-family: monospace">{to}</span>")</span>
+	</p>
+{/if}
 
 <style>
 	a {
