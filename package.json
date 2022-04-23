@@ -11,7 +11,7 @@
     "watch:glob": "node cheap_watch.cjs adventure npm run glob",
     "watch:build": "rollup -c -w",
     "watch": "run-p watch:*",
-    "serve": "live-server --no-css-inject --no-browser public",
+    "serve": "live-server --no-css-inject public",
     "dev": "npm-run-all -s glob -p watch serve"
   },
   "repository": {
