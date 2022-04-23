@@ -6,9 +6,9 @@
   "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "glob": "glob-module-file --pattern=adventures/blackboard_jungle/**/*.svelte --format=es --pathPrefix=../ --importStar --exportWithPath=true --outputPath=cyoa/globbed_adventure.js",
+    "glob": "glob-module-file --pattern=adventure/**/*.svelte --format=es --pathPrefix=../ --importStar --exportWithPath=true --outputPath=cyoa/globbed_adventure.js",
     "build": "npm run glob && rollup -c",
-    "watch:glob": "node cheap_watch.cjs adventures/blackboard_jungle npm run glob",
+    "watch:glob": "node cheap_watch.cjs adventure npm run glob",
     "watch:build": "rollup -c -w",
     "watch": "run-p watch:*",
     "serve": "live-server --no-css-inject --no-browser public",
