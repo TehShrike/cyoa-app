@@ -1,12 +1,12 @@
 The starting file must be called `Start.svelte`.
 
-## To build
+## Todo
 
-- Orphan detection
-- still need to implement a "wrapper" for adventures
-	- global styles (--blue)
-	- global buttons (save, reset, inventory)
-	- "score" dialog that uses state
+- global buttons (save, reset, inventory)
+- make sure components in subdirectories work fine
+	- put all the `\d{3}_.+.svelte` files into a "sections" directory
+- clean up
+	- delete test1, rename adventures->adventure, delete blackboard_jungle and move its contents up to the adventure directory
 
 ## stuff
 

@@ -15,7 +15,7 @@
 </script>
 
 <p data-selected={selected}>
-	<span class=triangle>
+	<span class=icon>
 		{#if selected}
 			✔
 		{:else}
@@ -26,17 +26,17 @@
 </p>
 
 <style>
-	.triangle {
-		color: gray;
+	.icon {
+		color: var(--gray);
 	}
 
-	[data-selected=true] .triangle {
-		color: #00a800;
+	[data-selected=true] .icon {
+		color: var(--green);
 	}
 
 	button {
 		cursor: pointer;
-		color: rgb(0, 0, 238);
+		color: var(--blue);
 		text-decoration: underline;
 		border: 0;
 		padding: 0;

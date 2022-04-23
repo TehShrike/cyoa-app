@@ -8,10 +8,13 @@ const basename = path => {
 	return file.split(`.`).slice(0, -1).join(`.`)
 }
 
-const Start = all_cyoa_components.find(({ path }) => path.endsWith(`Start.svelte`))
+const start_import = all_cyoa_components.find(({ path }) => path.endsWith(`Start.svelte`))
+const container_import = all_cyoa_components.find(({ path }) => path.endsWith(`Container.svelte`))
 
-if (!Start) {
+if (!start_import) {
 	console.error(`You need a "Start.svelte" file`)
+} else if (!container_import) {
+	console.error(`You need a "Container.svelte" file`)
 } else {
 	const name_to_id = Object.fromEntries(all_cyoa_components.map(({ path }) => {
 		const name = basename(path)
@@ -58,6 +61,7 @@ if (!Start) {
 	new Wrapper({
 		target: document.body,
 		props: {
+			Container: container_import.export.default,
 			name_to_id,
 			id_to_name,
 			id_to_component,
@@ -65,7 +69,7 @@ if (!Start) {
 			adventure_state: object_serializer_store({
 				param_name: `state`,
 				replace: true,
-				default_values: Start.export.initial_state,
+				default_values: start_import.export.initial_state,
 				serialize: to_obfuscated_json,
 				deserialize: from_obfuscated_json,
 			}),

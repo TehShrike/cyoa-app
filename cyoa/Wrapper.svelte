@@ -5,6 +5,7 @@
 	import Link from './Link.svelte'
 	import Links from './Links.svelte'
 
+	export let Container
 	export let name_to_id
 	export let id_to_name
 	export let id_to_component
@@ -35,28 +36,30 @@
 	setContext(`current_page_name`, current_page_name)
 </script>
 
-<div>
-	<svelte:component 
-		this={current_page_component} 
-		{Link} 
-		{Links} 
+<Container
+	{Link}
+	{Links}
+	state={adventure_state}
+>
+	<svelte:component
+		this={current_page_component}
+		{Link}
+		{Links}
 		state={adventure_state}
 	/>
-</div>
+</Container>
 
 <style>
-	div {
-		max-width: 800px;
-		margin-left: auto;
-		margin-right: auto;
-
-		display: flex;
-		flex-direction: column;
-		gap: 16px;
-		white-space: normal;
+	:global(*) {
+		margin: 0;
+		box-sizing: border-box;
 	}
 
-	div :global(*) {
+	:global(body) {
+		color: #333;
 		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	}
 </style>
