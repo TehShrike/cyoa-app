@@ -14,7 +14,7 @@
 	}
 </script>
 
-<p data-selected={selected}>
+<div data-selected={selected}>
 	<span class=icon>
 		{#if selected}
 			✔
@@ -22,8 +22,8 @@
 			▶
 		{/if}
 	</span>
-	<button on:click={on_click}>{summary}</button> {#if selected}<slot></slot>{/if}
-</p>
+	<button on:click={on_click}>{summary}</button> {#if selected}<span class=slot><slot></slot></span>{/if}
+</div>
 
 <style>
 	.icon {
@@ -42,5 +42,11 @@
 		padding: 0;
 		background-color: transparent;
 		font-size: initial;
+	}
+
+	.slot {
+		display: inline-flex;
+		flex-direction: column;
+		gap: 8px;
 	}
 </style>
