@@ -1,8 +1,14 @@
 # Shrike's CYOA framework
 
-Twine does a lot of work to give you that no-code experience, but by the time you're building anything meaningful, you're trying to figure out how to add custom JavaScript and do fancy styling stuff, right?
+## Why not Twine?
 
-This CYOA framework gets out of your way and just gives you the basics you need to get started.  It's not no-code, but it's meant to be learnable the same way everyone learned JS and HTML back in the day: by copying and pasting simple patterns until you internalize how they work.
+Twine works hard and gives you a giant flopping abstraction so that you won't have to write any code.
+
+But by the time your project gets interesting, you need to figure out how to add some code, and Twine just gallumphs around in your way.
+
+This isn't a no-code CYOA framework, this is an "easy code" CYOA framework.
+
+It's meant to be learned the same way everyone learned JS and HTML back in the day: by copying and pasting simple patterns from someone else's site until you internalized how stuff worked.
 
 ## What does the framework give you
 
