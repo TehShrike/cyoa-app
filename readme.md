@@ -30,7 +30,9 @@ npm i
 npm run dev
 ```
 
-and then start fiddling with the files in the `adventure` directory.
+and it will open the demo adventure in the browser so you can click around to see what's possible without much work.
+
+Then you can start fiddling with the files in the [`adventure`](https://github.com/TehShrike/cyoa-app/tree/master/adventure) directory yourself.
 
 ## What's the bare minimum your adventure needs
 
