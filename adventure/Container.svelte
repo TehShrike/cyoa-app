@@ -29,7 +29,7 @@
 			{current_page_name}
 		/>
 
-		<Link to=078_gymnasium state={initial_state}>
+		<Link to=Start state={initial_state}>
 			Reset
 		</Link>
 	</footer>
