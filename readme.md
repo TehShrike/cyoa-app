@@ -6,10 +6,10 @@ This CYOA framework gets out of your way and just gives you the basics you need 
 
 ## What does the framework give you
 
-- it handles the page that needs to be displayed
-- it handles storing any state like inventory or previous choices
+- it displays the current page and handles links to other pages
+- it stores state like inventory or the results of previous choices
 
-Routing and state get magically updated in the url for you, you create the adventure pages that link to each other.
+Routing and state get magically serialized to the url for you.  You create the adventure pages that link to each other.
 
 ## How do I get started?
 
