@@ -19,6 +19,7 @@ Run this:
 
 ```sh
 git clone git@github.com:TehShrike/cyoa-app.git
+cd cyoa-app
 npm i
 npm run dev
 ```
