@@ -28,7 +28,7 @@ and then start fiddling with the files in the `adventure` directory.
 
 ## What's the bare minimum your adventure needs
 
-**A file named `Container.svelte` that has `<slot></slot>` somewhere inside it** - this is what shows up on every single page.  You can put your global links or style stuff in here.
+**A file named `Container.svelte` that has `<slot></slot>` somewhere inside it** - this is where you put the framing/theme that impacts every single page.  You can put global links or style stuff in here.
 
 **A file named `Start.svelte`** – this is the first page people will see when they visit your adventure.
 
@@ -62,6 +62,9 @@ or
 <button on:click={() => $state.carrying_the_vorpal_blade = true}>
 	Pick up the blade of destiny
 </button>
+{#if $state.carrying_the_vorpal_blade}
+	Dude, it's so snicker-snacky
+{/if}
 ```
 
 ### `Link`
@@ -72,12 +75,12 @@ Link to any other page in your adventure, using the file name without the `.svel
 <Link to=80_hallway>Walk down the creepy hallway</Link>
 ```
 
-If you want to do something crazy, you can change the state when they click on the link too:
+If you want to do something funky, you can change the state when they click on the link too:
 
 ```svelte
 <Link
 	to=obvious_trap
-	state={{ ...$state, is_probably_a_doofus: true }}
+	state={ { ...$state, is_probably_a_doofus: true } }
 >
 	Open the door covered in cobwebs
 </Link>
