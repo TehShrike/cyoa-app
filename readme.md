@@ -105,14 +105,9 @@ But in the interest of facilitating wacky hacking, for now I like having everyth
 
 To learn more fancy bits about how the page templating works, check out the [Svelte documentation](https://svelte.dev/docs#template-syntax).  That's how the page components are handled.
 
-## I need to ask someone a question
+## If you have questions
 
 I like helping people make things.  I'm `TehShrike#4520` on Discord or [TehShrike](https://twitter.com/TehShrike) on Twitter.
-
-# Todo
-
-- Edit the `Start.svelte` of the demo so that it explains the concept behind Parsely
-- publish to gh-pages?
 
 # License
 
